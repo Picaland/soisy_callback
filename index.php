@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Soisy callback
- * Description: Soisy callback (unofficial) plugin for WooCommerce (change order status (completed or cancelled) via REST API - callback url: https://example.com/wp-json/api/v1/soisy_callback/
- * callback)
+ * Description: Soisy callback (unofficial) plugin for WooCommerce (change order status (completed or cancelled) via
+ * REST API - callback url: https://example.com/wp-json/api/v1/soisy_callback/ callback)
  *
  * Version: 1.0.0
  * Author: alfiopiccione <alfio.piccione@gmail.com>
@@ -87,10 +87,10 @@ add_action('rest_api_init', function () {
                     'orderNote'      => $note,
                 ];
 
-                // Log
-                $message = json_encode($response, true);
-                $date    = getDateTime();
                 if (defined('SOISY_CALLBACK_LOG') && SOISY_CALLBACK_LOG) {
+                    // Log
+                    $message = json_encode($response, true);
+                    $date    = getDateTime();
                     $message = "{$date}: {$message}\n";
                     error_log($message, 3, SOISY_CALLBACK_DIR . 'log/soisy_callback.log');
                 }
