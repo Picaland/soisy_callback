@@ -1,8 +1,6 @@
 # Soisy callback
 Soisy callback (unofficial) plugin for WooCommerce (change order status (completed or cancelled) via REST API 
 
-<hr>
-
 ### callback url: 
 * example.com/wp-json/api/v1/soisy_callback/
 
