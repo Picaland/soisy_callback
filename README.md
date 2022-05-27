@@ -4,7 +4,7 @@ Soisy callback (unofficial) plugin for WooCommerce (change order status (complet
 <hr>
 
 ### callback url: 
-* https://example.com/wp-json/api/v1/soisy_callback/
+* example.com/wp-json/api/v1/soisy_callback/
 
 <hr>
 
