@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Soisy callback
- * Description: Soisy callback plugin for WooCommerce (change order status (completed or cancelled) via REST API
+ * Description: Soisy callback (unofficial) plugin for WooCommerce (change order status (completed or cancelled) via REST API
  * callback)
  *
  * Version: 1.0.0
