@@ -13,6 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Remove .github/workflows directory
+        run: |
+          rm -rf .github/workflows
+
       - name: Create ZIP file
         id: zip_step
         run: |
@@ -37,4 +41,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: deploy/
-          server-dir: /home/customer/www/alfiopiccione.com/public_html/zip/
+          server-dir: /deploy/zip/
