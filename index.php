@@ -4,6 +4,7 @@
  * Description: Soisy callback (unofficial) plugin for WooCommerce (change order status (completed or cancelled) via REST API - callback url: https://example.com/wp-json/api/v1/soisy_callback/ callback)
  *
  * Version: 1.0.2
+ *
  * Author: alfiopiccione <alfio.piccione@gmail.com>
  * Author URI: https://alfiopiccione.com/
  * License GPL 2
