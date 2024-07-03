@@ -20,7 +20,9 @@ jobs:
           TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
           ZIP_NAME="${REPO_NAME}-${TAG_NAME}.zip"
           zip -r $ZIP_NAME .
-          echo "::set-output name=zip_name::$ZIP_NAME"
+          mkdir -p deploy/
+          mv $ZIP_NAME deploy/
+          echo "::set-output name=zip_name::deploy/$ZIP_NAME"
 
       - name: Upload ZIP file as artifact
         uses: actions/upload-artifact@v2
@@ -34,6 +36,5 @@ jobs:
           server: ftp.alfiopiccione.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: .
-          remote-dir: /home/customer/www/alfiopiccione.com/public_html/zip
-          git-ftp-args: --all
+          local-dir: deploy/
+          server-dir: /home/customer/www/alfiopiccione.com/public_html/zip
