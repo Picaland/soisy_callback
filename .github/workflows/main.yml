@@ -31,7 +31,7 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          ftp-server: ftp://your-ftp-server
+          ftp-server: ftp.alfiopiccione.com
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: .
