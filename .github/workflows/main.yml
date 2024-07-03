@@ -14,22 +14,24 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create ZIP file
+        id: zip_step
         run: |
           REPO_NAME=${GITHUB_REPOSITORY##*/}
           TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
           ZIP_NAME="${REPO_NAME}-${TAG_NAME}.zip"
           zip -r $ZIP_NAME .
+          echo "::set-output name=zip_name::$ZIP_NAME"
 
       - name: Upload ZIP file as artifact
         uses: actions/upload-artifact@v2
         with:
           name: deployment-zip
-          path: '*.zip'
+          path: ${{ steps.zip_step.outputs.zip_name }}
 
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          ftp-server: ftp.alfiopiccione.com
+          ftp-server: ftp://your-ftp-server
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: .
