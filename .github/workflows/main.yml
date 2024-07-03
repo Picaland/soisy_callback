@@ -37,4 +37,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: deploy/
-          server-dir: /home/customer/www/alfiopiccione.com/public_html/zip
+          server-dir: /home/customer/www/alfiopiccione.com/public_html/zip/
