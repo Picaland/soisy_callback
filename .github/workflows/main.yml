@@ -24,7 +24,8 @@ jobs:
           TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
           ZIP_NAME="${REPO_NAME}-${TAG_NAME}.zip"
           mkdir -p deploy/$REPO_NAME
-          cp -r * deploy/$REPO_NAME
+          shopt -s extglob
+          cp -r !(deploy) deploy/$REPO_NAME
           cd deploy
           zip -r $ZIP_NAME $REPO_NAME
           echo "::set-output name=zip_name::deploy/$ZIP_NAME"
