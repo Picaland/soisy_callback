@@ -23,9 +23,10 @@ jobs:
           REPO_NAME=${GITHUB_REPOSITORY##*/}
           TAG_NAME=$(echo ${GITHUB_REF#refs/tags/})
           ZIP_NAME="${REPO_NAME}-${TAG_NAME}.zip"
-          mkdir -p deploy/
-          mv . ../$REPO_NAME
-          zip -r deploy/$ZIP_NAME ../$REPO_NAME/*
+          mkdir -p deploy/$REPO_NAME
+          cp -r * deploy/$REPO_NAME
+          cd deploy
+          zip -r $ZIP_NAME $REPO_NAME
           echo "::set-output name=zip_name::deploy/$ZIP_NAME"
 
       - name: Upload ZIP file as artifact
