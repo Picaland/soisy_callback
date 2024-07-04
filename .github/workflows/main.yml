@@ -29,6 +29,8 @@ jobs:
           cd deploy
           zip -r $ZIP_NAME $REPO_NAME
           echo "::set-output name=zip_name::deploy/$ZIP_NAME"
+          cd ..
+          rm -rf deploy/$REPO_NAME
 
       - name: Upload ZIP file as artifact
         uses: actions/upload-artifact@v2
